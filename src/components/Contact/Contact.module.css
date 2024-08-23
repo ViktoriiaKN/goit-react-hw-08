@@ -1,0 +1,45 @@
+.contactItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  gap: 25px;
+  width: 250px;
+}
+
+.contactItem:hover {
+  background-color: #e9e9e9;
+}
+
+.contactWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* Займає всю доступну ширину */
+}
+
+.contactName {
+  font-weight: bold;
+}
+
+.contactNumber {
+  margin-top: 5px;
+  /* Додатковий відступ між іменем і номером */
+}
+
+.deleteButton {
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #ff1a1a;
+}
