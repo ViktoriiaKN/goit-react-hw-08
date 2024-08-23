@@ -1,7 +1,6 @@
-Project Overview
 This project is a React-based application called "Contact Book", created using Vite. It features user registration and login functionality, allowing users to manage a private collection of contacts. The project is built with modern web development technologies and practices, including Redux Toolkit for state management, React Router for routing, and Formik for form handling.
 
-Technologies Used
+Technologies Used:
 Vite: Fast build tool for modern web projects.
 React: JavaScript library for building user interfaces.
 Redux Toolkit: Simplifies state management and logic.
@@ -19,6 +18,6 @@ Modular Components: Organized structure with separate folders for components and
 Responsive UI: Styled with CSS Modules to ensure a consistent look and feel.
 Persistent User State: Maintains user authentication state even after page reloads.
 
-Additional Features
+Additional Features:
 React Hot Toast: Notifications for successful contact operations.
 Material UI (Optional): Consider using this for enhanced UI components.
