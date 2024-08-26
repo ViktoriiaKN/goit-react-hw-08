@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
-import { getIsLoggedIn, getError } from "../redux/auth/selectors";
+import { getIsLoggedIn, getError } from "../../redux/auth/selectors";
 import style from "./LoginPage.module.css";
 import { useEffect } from "react";
 

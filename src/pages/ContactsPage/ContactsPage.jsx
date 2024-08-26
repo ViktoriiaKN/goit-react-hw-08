@@ -5,9 +5,9 @@ import {
   getContacts,
   getIsLoading,
   getError,
-} from "../redux/contacts/selectors";
-import ContactList from "../components/ContactList/ContactList";
+} from "../../redux/contacts/selectors";
 import { fetchContacts } from "../../redux/contacts/operations";
+import ContactList from "../../components/ContactList/ContactList";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
