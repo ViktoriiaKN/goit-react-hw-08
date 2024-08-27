@@ -1,11 +1,7 @@
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome to the Home Page</h1>
-      <p>
-        This is the homepage of our application. You can navigate to different
-        sections using the menu.
-      </p>
+      <h1>Task manager welcome page</h1>4
     </div>
   );
 };
