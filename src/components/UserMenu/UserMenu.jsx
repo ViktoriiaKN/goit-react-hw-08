@@ -2,12 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/auth/operations";
 import s from "./UserMenu.module.css";
 
-import { selectUser } from "../../redux/auth/selectors";
-import { selectContacts } from "../../redux/contacts/selectors";
+import { getUser } from "../../redux/auth/selectors";
+import { getContacts } from "../../redux/contacts/selectors";
 
 const UserMenu = () => {
-  const user = useSelector(selectUser);
-  const quantity = useSelector(selectContacts);
+  const user = useSelector(getUser);
+  const quantity = useSelector(getContacts);
 
   const dispatch = useDispatch();
   return (
