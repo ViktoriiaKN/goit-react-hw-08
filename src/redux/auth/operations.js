@@ -12,7 +12,9 @@ export const register = createAsyncThunk(
       axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );
@@ -26,7 +28,9 @@ export const login = createAsyncThunk(
       axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );
@@ -35,9 +39,11 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     await axios.post("/users/logout");
-    axios.defaults.headers.common.Authorization = "";
+    delete axios.defaults.headers.common.Authorization;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(
+      error.response?.data?.message || error.message
+    );
   }
 });
 
@@ -48,7 +54,7 @@ export const refreshUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
+    if (!persistedToken) {
       return thunkAPI.rejectWithValue("No token found");
     }
 
@@ -57,7 +63,9 @@ export const refreshUser = createAsyncThunk(
       const response = await axios.get("/users/current");
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
     }
   }
 );

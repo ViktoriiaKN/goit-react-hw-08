@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
@@ -26,8 +26,9 @@ const LoginPage = () => {
     password: Yup.string().min(6, "Password too short").required("Required"),
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, options) => {
     dispatch(login(values));
+    options.resetForm();
   };
 
   return (
@@ -64,6 +65,9 @@ const LoginPage = () => {
           <button type="submit" className={style.submitButton}>
             Login
           </button>
+          <p>
+            Don`t have an account yet?<Link to="/register">Sign up!</Link>
+          </p>
           {error && <p className={style.error}>{error}</p>}
         </Form>
       </Formik>

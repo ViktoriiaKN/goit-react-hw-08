@@ -2,14 +2,20 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { register } from "../../redux/auth/operations";
-import style from "./RegistrationPage.module.css";
+import { Link } from "react-router-dom";
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
 
-  const initialValues = { email: "", password: "", confirmPassword: "" };
+  const initialValues = {
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
 
   const validationSchema = Yup.object({
+    name: Yup.string().required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string().min(6, "Password too short").required("Required"),
     confirmPassword: Yup.string()
@@ -17,8 +23,9 @@ const RegistrationPage = () => {
       .required("Required"),
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, options) => {
     const { password, confirmPassword, ...credentials } = values;
+    options.resetForm();
 
     if (password !== confirmPassword) {
       console.error("Passwords do not match");
@@ -27,53 +34,40 @@ const RegistrationPage = () => {
 
     dispatch(register(credentials));
   };
+
   return (
-    <div className={style.registrationContainer}>
+    <div>
       <h1>Register</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={style.formContainer}>
-          <div className={style.formField}>
+        <Form>
+          <div>
+            <label htmlFor="name">Name</label>
+            <Field name="name" type="text" />
+            <ErrorMessage name="name" component="div" />
+          </div>
+          <div>
             <label htmlFor="email">Email</label>
-            <Field name="email" type="email" className={style.inputField} />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className={style.errorMessage}
-            />
+            <Field name="email" type="email" />
+            <ErrorMessage name="email" component="div" />
           </div>
-          <div className={style.formField}>
+          <div>
             <label htmlFor="password">Password</label>
-            <Field
-              name="password"
-              type="password"
-              className={style.inputField}
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className={style.errorMessage}
-            />
+            <Field name="password" type="password" />
+            <ErrorMessage name="password" component="div" />
           </div>
-          <div className={style.formField}>
+          <div>
             <label htmlFor="confirmPassword">Confirm Password</label>
-            <Field
-              name="confirmPassword"
-              type="password"
-              className={style.inputField}
-            />
-            <ErrorMessage
-              name="confirmPassword"
-              component="div"
-              className={style.errorMessage}
-            />
+            <Field name="confirmPassword" type="password" />
+            <ErrorMessage name="confirmPassword" component="div" />
           </div>
-          <button type="submit" className={style.submitButton}>
-            Register
-          </button>
+          <button type="submit">Register</button>
+          <p>
+            You already have account?<Link to="/login">Sign in</Link>
+          </p>
         </Form>
       </Formik>
     </div>

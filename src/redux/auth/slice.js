@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { register, login, logout, refreshUser } from "./operations";
 
 const initialState = {
-  user: { name: null, email: null },
-  token: null,
+  user: { name: "", email: "" }, // Порожні рядки як заміна null
+  token: "",
   isLoggedIn: false,
   isRefreshing: false,
 };
@@ -24,8 +24,8 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(logout.fulfilled, (state) => {
-        state.user = { name: null, email: null };
-        state.token = null;
+        state.user = { name: "", email: "" };
+        state.token = "";
         state.isLoggedIn = false;
       })
       .addCase(refreshUser.pending, (state) => {
