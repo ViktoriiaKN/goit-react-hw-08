@@ -2,7 +2,8 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { register } from "../../redux/auth/operations";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import s from "./RegistrationPage.module.css";
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -36,37 +37,56 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
+    <div className={s.registrationPage}>
+      <h1 className={s.title}>Register</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form>
-          <div>
-            <label htmlFor="name">Name</label>
-            <Field name="name" type="text" />
-            <ErrorMessage name="name" component="div" />
+        <Form className={s.form}>
+          <div className={s.formGroup}>
+            <label htmlFor="name" className={s.label}>
+              Name
+            </label>
+            <Field name="name" type="text" className={s.input} />
+            <ErrorMessage name="name" component="div" className={s.error} />
           </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <Field name="email" type="email" />
-            <ErrorMessage name="email" component="div" />
+          <div className={s.formGroup}>
+            <label htmlFor="email" className={s.label}>
+              Email
+            </label>
+            <Field name="email" type="email" className={s.input} />
+            <ErrorMessage name="email" component="div" className={s.error} />
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <Field name="password" type="password" />
-            <ErrorMessage name="password" component="div" />
+          <div className={s.formGroup}>
+            <label htmlFor="password" className={s.label}>
+              Password
+            </label>
+            <Field name="password" type="password" className={s.input} />
+            <ErrorMessage name="password" component="div" className={s.error} />
           </div>
-          <div>
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <Field name="confirmPassword" type="password" />
-            <ErrorMessage name="confirmPassword" component="div" />
+          <div className={s.formGroup}>
+            <label htmlFor="confirmPassword" className={s.label}>
+              Confirm Password
+            </label>
+            <Field name="confirmPassword" type="password" className={s.input} />
+            <ErrorMessage
+              name="confirmPassword"
+              component="div"
+              className={s.error}
+            />
           </div>
-          <button type="submit">Register</button>
-          <p>
-            You already have account?<Link to="/login">Sign in</Link>
+          <div className={s.btnContainer}>
+            <button type="submit" className={s.button}>
+              Register
+            </button>
+          </div>
+          <p className={s.linkTo}>
+            You already have account?{" "}
+            <NavLink className={s.signIn} to="/login">
+              Sign in
+            </NavLink>
           </p>
         </Form>
       </Formik>

@@ -11,9 +11,9 @@ const UserMenu = () => {
 
   const dispatch = useDispatch();
   return (
-    <>
-      <h1>{`Welcome ${user.name}`}</h1>
-      <p>{`Saved contacts: ${quantity.length}`}</p>
+    <div className={s.userMenu}>
+      <h1 className={s.welcomeText}>{`Welcome ${user.name}`}</h1>
+      <p className={s.contactCount}>{`Saved contacts: ${quantity.length}`}</p>
       <button
         className={s.button}
         type="button"
@@ -23,7 +23,7 @@ const UserMenu = () => {
       >
         Log out
       </button>
-    </>
+    </div>
   );
 };
 

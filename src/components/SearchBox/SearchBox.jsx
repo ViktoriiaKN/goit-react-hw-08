@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
 import { selectNameFilter, changeFilter } from "../../redux/filtersSlice";
-import style from "./SearchBox.module.css";
+import s from "./SearchBox.module.css";
 
 const SearchBox = () => {
   const filter = useSelector(selectNameFilter);
   const dispatch = useDispatch();
 
   return (
-    <div className={style.searchContainer}>
+    <div className={s.searchContainer}>
       <input
-        className={style.searchBox}
+        className={s.searchBox}
         type="text"
         name="filter"
         value={filter}

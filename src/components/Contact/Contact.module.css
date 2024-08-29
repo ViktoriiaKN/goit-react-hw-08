@@ -2,44 +2,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  gap: 25px;
-  width: 250px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .contactItem:hover {
-  background-color: #e9e9e9;
-}
-
-.contactWrapper {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  /* Займає всю доступну ширину */
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .contactName {
   font-weight: bold;
+  color: #333;
 }
 
 .contactNumber {
-  margin-top: 5px;
-  /* Додатковий відступ між іменем і номером */
+  color: #555;
 }
 
 .deleteButton {
   background-color: #ff4d4d;
   border: none;
   color: white;
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .deleteButton:hover {
   background-color: #ff1a1a;
+  transform: scale(1.05);
 }

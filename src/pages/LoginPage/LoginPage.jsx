@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
 import { getIsLoggedIn, getError } from "../../redux/auth/selectors";
-import style from "./LoginPage.module.css";
+import s from "./LoginPage.module.css";
 import { useEffect } from "react";
 
 const LoginPage = () => {
@@ -32,43 +32,39 @@ const LoginPage = () => {
   };
 
   return (
-    <div className={style.loginContainer}>
+    <div className={s.loginContainer}>
       <h1>Login</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={style.formContainer}>
-          <div className={style.formField}>
+        <Form className={s.formContainer}>
+          <div className={s.formField}>
             <label htmlFor="email">Email</label>
-            <Field name="email" type="email" className={style.inputField} />
+            <Field name="email" type="email" className={s.inputField} />
             <ErrorMessage
               name="email"
               component="div"
-              className={style.errorMessage}
+              className={s.errorMessage}
             />
           </div>
-          <div className={style.formField}>
+          <div className={s.formField}>
             <label htmlFor="password">Password</label>
-            <Field
-              name="password"
-              type="password"
-              className={style.inputField}
-            />
+            <Field name="password" type="password" className={s.inputField} />
             <ErrorMessage
               name="password"
               component="div"
-              className={style.errorMessage}
+              className={s.errorMessage}
             />
           </div>
-          <button type="submit" className={style.submitButton}>
+          <button type="submit" className={s.submitButton}>
             Login
           </button>
           <p>
             Don`t have an account yet?<Link to="/register">Sign up!</Link>
           </p>
-          {error && <p className={style.error}>{error}</p>}
+          {error && <p className={s.error}>{error}</p>}
         </Form>
       </Formik>
     </div>
