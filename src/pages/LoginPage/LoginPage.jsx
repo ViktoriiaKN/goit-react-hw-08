@@ -33,7 +33,7 @@ const LoginPage = () => {
 
   return (
     <div className={s.loginContainer}>
-      <h1>Login</h1>
+      <h1 className={s.login}>Login</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -61,7 +61,7 @@ const LoginPage = () => {
           <button type="submit" className={s.submitButton}>
             Login
           </button>
-          <p>
+          <p className={s.linkTo}>
             Don`t have an account yet?<Link to="/register">Sign up!</Link>
           </p>
           {error && <p className={s.error}>{error}</p>}

@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  background-color: #3b5497;
+  background-color: #3b5497; /* Змінений колір фону */
   color: rgba(255, 255, 255, 0.87);
   display: flex;
   flex-direction: column;
@@ -12,12 +12,29 @@ body {
 
 a {
   text-decoration: none;
+  color: #007bff; /* Основний колір для посилань */
+  transition: color 0.3s, background-color 0.3s;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+a:hover {
+  color: #fff; /* Білий текст при ховері */
+  background-color: #0056b3; /* Фон при ховері */
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0; /* Додаємо padding для коректного відображення списків */
+  margin: 0; /* Додаємо margin для коректного відображення списків */
 }
 
 h1 {
   font-size: 3em;
   margin-bottom: 1em;
-  color: #fff;
+  color: #fff; /* Білий текст */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Додаємо тінь для тексту */
 }
 
 button {
@@ -26,12 +43,13 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  background-color: #1a1a1a;
+  background-color: #646cff; /* Змінено на основний колір теми */
+  color: #fff;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-  background-color: #333;
+  background-color: #535bf2; /* Темніший колір при ховері */
   transform: scale(1.05);
 }

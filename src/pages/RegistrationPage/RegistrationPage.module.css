@@ -4,38 +4,44 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f0f0f0;
+  background: linear-gradient(
+    135deg,
+    #3b5497,
+    #6a8dff
+  ); /* Фон у стилі HomePage */
+  color: #fff; /* Білий текст */
 }
 
 .title {
   margin-bottom: 20px;
   font-size: 2rem;
-  color: #333;
+  color: #fff; /* Білий текст */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Додавання тіні для тексту */
 }
 
 .form {
   display: flex;
   flex-direction: column;
   width: 350px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9); /* Прозорий білий фон */
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Тінь для форми */
 }
 
 .formGroup {
-  margin-bottom: 15px; /* Збільшене відступ для кращого вигляду */
+  margin-bottom: 15px;
 }
 
 .label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+  color: #333; /* Темно-сірий колір тексту */
 }
 
 .input {
-  width: calc(100% - 16px); /* Виправлено відступ */
+  width: calc(100% - 16px);
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -59,30 +65,32 @@
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  width: 80%;
+  width: 100%;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .button:hover {
   background-color: #ff1a1a;
+  transform: scale(1.05);
 }
 
 .linkTo {
-  color: #333;
-  margin-top: 20px; /* Додаємо відступ */
-  font-size: 1rem; /* Збільшений розмір шрифту */
+  color: #333333b8;
+  margin-top: 20px;
+  font-size: 1rem;
 }
 
 .signIn {
-  color: #007bff; /* Основний колір для посилання */
-  background-color: #e7f0ff; /* Легкий фон для привернення уваги */
-  border-radius: 4px; /* Краї для фону */
-  padding: 4px 8px; /* Відступи для кнопки */
-  text-decoration: none; /* Прибираємо підкреслення */
-  transition: background-color 0.3s, color 0.3s; /* Плавний перехід для ховера */
+  color: #007bff;
+  background-color: #e7f0ff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .signIn:hover {
-  background-color: #0056b3; /* Темніший фон при ховері */
-  color: #fff; /* Білий текст при ховері */
-  text-decoration: underline; /* Підкреслення при ховері для кращого ефекту */
+  background-color: #0056b3;
+  color: #fff;
+  text-decoration: underline;
 }

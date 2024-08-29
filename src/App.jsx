@@ -23,31 +23,34 @@ const App = () => {
   return !isRefreshing ? (
     <Router>
       <Routes>
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute
-              redirectTo="/contacts"
-              component={<RegistrationPage />}
-            />
-          }
-        />
-        <Route path="*" element={<NotFoundPage />} />
-
         <Route path="/" element={<Layout />}>
+          {/* Ці маршрути тепер всередині Layout, тому AppBar буде завжди присутній */}
           <Route index element={<HomePage />} />
           <Route
-            path="/contacts"
+            path="login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegistrationPage />}
+              />
+            }
+          />
+          <Route
+            path="contacts"
             element={
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Router>
