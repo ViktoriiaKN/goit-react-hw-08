@@ -10,6 +10,7 @@ const initialState = {
   items: [],
   isLoading: false,
   error: null,
+  filter: "",
 };
 
 const contactsSlice = createSlice({
@@ -66,9 +67,12 @@ export const selectFilter = (state) => state.filter;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (contacts, filter) => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    return contacts.filter((contact) => {
+      // Перевіряємо, чи contact.name і filter не є undefined
+      const contactName = contact.name ? contact.name.toLowerCase() : "";
+      const lowerFilter = filter ? filter.toLowerCase() : "";
+      return contactName.includes(lowerFilter);
+    });
   }
 );
 
