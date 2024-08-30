@@ -25,15 +25,17 @@ const RegistrationPage = () => {
   });
 
   const handleSubmit = (values, options) => {
-    const { password, confirmPassword, ...credentials } = values;
-    options.resetForm();
+    // Видаляємо тільки confirmPassword, залишаючи password
+    const { confirmPassword, ...credentials } = values;
 
-    if (password !== confirmPassword) {
+    if (credentials.password !== confirmPassword) {
       console.error("Passwords do not match");
       return;
     }
 
+    console.log("Submitting credentials:", credentials); // Перевірка відправлених даних
     dispatch(register(credentials));
+    options.resetForm();
   };
 
   return (
