@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import {
   getContacts,
   getIsLoading,
@@ -8,6 +7,7 @@ import {
 } from "../../redux/contacts/selectors";
 import { fetchContacts } from "../../redux/contacts/operations";
 import ContactList from "../../components/ContactList/ContactList";
+import ContactForm from "../../components/ContactForm/ContactForm"; // Імпортуємо компонент для додавання контактів
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -25,11 +25,9 @@ const ContactsPage = () => {
   return (
     <div>
       <h1>Contacts</h1>
-      {contacts.length > 0 ? (
-        <ContactList contacts={contacts} />
-      ) : (
-        <p>No contacts found</p>
-      )}
+      {/* Додаємо компонент форми для додавання контактів */}
+      <ContactForm />
+      {contacts.length > 0 ? <ContactList /> : <p>No contacts found</p>}
     </div>
   );
 };

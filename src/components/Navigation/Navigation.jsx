@@ -10,7 +10,11 @@ const Navigation = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>{isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}</li>
+      {isLoggedIn && (
+        <li>
+          <NavLink to="/contacts">Contacts</NavLink>
+        </li>
+      )}
     </ul>
   );
 };

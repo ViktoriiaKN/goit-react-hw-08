@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createSelector } from "reselect"; // Додано для створення селектора
+import { createSelector } from "reselect";
 import {
   fetchContacts,
   addContact,

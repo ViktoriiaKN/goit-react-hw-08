@@ -24,30 +24,29 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* Ці маршрути тепер всередині Layout, тому AppBar буде завжди присутній */}
           <Route index element={<HomePage />} />
           <Route
             path="login"
             element={
-              <RestrictedRoute
-                redirectTo="/contacts"
-                component={<LoginPage />}
-              />
+              <RestrictedRoute redirectTo="/contacts">
+                <LoginPage />
+              </RestrictedRoute>
             }
           />
           <Route
             path="register"
             element={
-              <RestrictedRoute
-                redirectTo="/contacts"
-                component={<RegistrationPage />}
-              />
+              <RestrictedRoute redirectTo="/contacts">
+                <RegistrationPage />
+              </RestrictedRoute>
             }
           />
           <Route
             path="contacts"
             element={
-              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+              <PrivateRoute redirectTo="/login">
+                <ContactsPage />
+              </PrivateRoute>
             }
           />
           <Route path="*" element={<NotFoundPage />} />
