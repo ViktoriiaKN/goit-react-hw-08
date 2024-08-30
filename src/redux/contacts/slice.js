@@ -5,6 +5,7 @@ import {
   addContact,
   deleteContact,
 } from "../contacts/operations";
+import { logout } from "../auth/operations";
 
 const initialState = {
   items: [],
@@ -53,22 +54,20 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(logout.fulfilled, () => initialState);
   },
 });
 
-// Селектор для отримання всіх контактів
+// Selectors
 export const selectContacts = (state) => state.contacts.items;
 
-// Селектор для отримання фільтра (якщо є)
-export const selectFilter = (state) => state.filter;
+export const selectFilter = (state) => state.filters;
 
-// Селектор для отримання відфільтрованих контактів
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (contacts, filter) => {
     return contacts.filter((contact) => {
-      // Перевіряємо, чи contact.name і filter не є undefined
       const contactName = contact.name ? contact.name.toLowerCase() : "";
       const lowerFilter = filter ? filter.toLowerCase() : "";
       return contactName.includes(lowerFilter);
